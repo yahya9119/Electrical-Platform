@@ -1,0 +1,10 @@
+{
+  "name": "منصة كهربائيات",
+  "short_name": "كهربائيات",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f6f7f3",
+  "theme_color": "#12323a",
+  "dir": "rtl",
+  "lang": "ar"
+}
