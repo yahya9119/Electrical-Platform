@@ -346,6 +346,46 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    .engineering-steps {
+      margin: 12px 0 0;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdff;
+    }
+    .engineering-steps strong { display: block; margin-bottom: 8px; color: var(--teal-2); }
+    .engineering-steps ol { margin: 0; padding-inline-start: 22px; color: var(--muted); line-height: 1.75; }
+    .sbc-note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border: 1px solid #d7e4f3;
+      border-radius: var(--radius);
+      background: #f4f8fe;
+      color: #31527d;
+      line-height: 1.7;
+      font-weight: 700;
+    }
+    .result-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .result-actions button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .result-actions svg { width: 18px; height: 18px; }
+    .calc-error {
+      margin-top: 12px;
+      padding: 11px 12px;
+      border: 1px solid rgba(185,71,71,.25);
+      border-radius: var(--radius);
+      background: rgba(185,71,71,.09);
+      color: var(--red);
+      font-weight: 800;
+    }
     .sketch-plan {
       width: 100%;
       min-height: 320px;
@@ -574,7 +614,7 @@
       <section class="section active" id="section-calculators">
         <div class="section-intro">
           <h2 data-i18n="calcPageTitle">الحاسبات الكهربائية</h2>
-          <p data-i18n="calcPageSubtitle">12 حاسبة تفاعلية للمهندسين الكهربائيين</p>
+          <p data-i18n="calcPageSubtitle">15 حاسبة تفاعلية للمهندسين الكهربائيين</p>
         </div>
         <div class="category-strip" id="calculatorCategories"></div>
         <div class="card-grid" id="calculatorGrid"></div>
@@ -711,7 +751,11 @@
       info: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>',
       mail: '<svg viewBox="0 0 24 24"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>',
       phone: '<svg viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>',
-      print: '<svg viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>'
+      print: '<svg viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>',
+      copy: '<svg viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>',
+      breaker: '<svg viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>',
+      panel: '<svg viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
+      generator: '<svg viewBox="0 0 24 24"><path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5"/><path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16"/><path d="M2 21h13"/><path d="M3 9h11"/></svg>'
     };
 
     document.querySelectorAll('[data-icon]').forEach(el => el.innerHTML = icons[el.dataset.icon] || '');
@@ -721,27 +765,27 @@
         appTitle: 'كهربائيات',
         appSubtitle: 'أدوات الهندسة الكهربائية',
         calcPageTitle: 'الحاسبات الكهربائية',
-        calcPageSubtitle: '12 حاسبة تفاعلية للمهندسين الكهربائيين',
+        calcPageSubtitle: '15 حاسبة تفاعلية للمهندسين الكهربائيين',
         tabCalc: 'الحاسبات', tabProjects: 'المشاريع', tabReferences: 'المراجع', tabTables: 'الجداول', tabFormulas: 'المعادلات',
         projectsTitle: 'مشاريعي', addProject: 'مشروع جديد', noProjects: 'لا توجد مشاريع بعد. أضف أول مشروع لك.',
         projectName: 'اسم المشروع', projectClient: 'العميل/الجهة', projectType: 'نوع المشروع', projectStatus: 'الحالة',
         projectLoad: 'الحمل (kW)', projectDate: 'تاريخ البداية', projectNotes: 'ملاحظات', save: 'حفظ', cancel: 'إلغاء',
         footerName: 'كهربائيات — أدوات الهندسة الكهربائية', footerCopy: 'منصة حسابات ومراجع للمهندسين الكهربائيين.',
         aboutTitle: 'كهربائيات',
-        about: 'منصة كهربائيات تقدم 12 حاسبة كهربائية، الحسابات تقديرية ويجب مراجعتها حسب الكود المعتمد وبيانات المصنع.'
+        about: 'منصة كهربائيات تقدم 15 حاسبة كهربائية، الحسابات تقديرية ويجب مراجعتها حسب الكود المعتمد وبيانات المصنع.'
       },
       en: {
         appTitle: 'Kahrabaiyat',
         appSubtitle: 'Electrical engineering tools',
         calcPageTitle: 'Electrical Calculators',
-        calcPageSubtitle: '12 interactive calculators for electrical engineers',
+        calcPageSubtitle: '15 interactive calculators for electrical engineers',
         tabCalc: 'Calculators', tabProjects: 'Projects', tabReferences: 'References', tabTables: 'Tables', tabFormulas: 'Formulas',
         projectsTitle: 'My Projects', addProject: 'New Project', noProjects: 'No projects yet. Add your first one.',
         projectName: 'Project name', projectClient: 'Client', projectType: 'Project type', projectStatus: 'Status',
         projectLoad: 'Load (kW)', projectDate: 'Start date', projectNotes: 'Notes', save: 'Save', cancel: 'Cancel',
         footerName: 'Kahrabaiyat — Electrical Engineering Tools', footerCopy: 'Calculators and references for electrical engineers.',
         aboutTitle: 'Kahrabaiyat',
-        about: 'Kahrabaiyat provides 12 electrical calculators. Results are estimates and must be reviewed against the approved code and manufacturer data.'
+        about: 'Kahrabaiyat provides 15 electrical calculators. Results are estimates and must be reviewed against the approved code and manufacturer data.'
       }
     };
 
@@ -762,6 +806,9 @@
       { mm2: 150, a: 335 }, { mm2: 185, a: 382 }, { mm2: 240, a: 453 }, { mm2: 300, a: 523 }
     ];
     const breakerSizes = [16,20,25,32,40,50,63,80,100,125,160,200,250,315,400,500,630];
+    const engineeringBreakerSizes = [20,32,40,50,63,80,100,125,160,200,250,315,400,500,630,800,1000,1250,1600,2000,2500,3200,4000];
+    const panelRatings = [63,100,125,160,200,250,315,400,500,630,800,1000,1250,1600,2000,2500,3200,4000];
+    const generatorSizes = [1,2,3,5,7.5,10,12.5,15,20,25,30,40,50,60,75,100,125,150,200,250,300,350,400,500,625,750,1000,1250,1500,2000,2500,3000];
     const transformerSizes = [50,75,100,160,200,250,315,400,500,630,800,1000,1250,1600,2000,2500,3150,4000];
     const lightingLevels = [
       { ar: 'ممرات', en: 'Corridors', lux: 100, range: '100-150' },
@@ -800,6 +847,10 @@
       { id: 'earth', category: 'protection', icon: 'earth', ar: 'حساب التأريض', en: 'Earthing Resistance', descAr: 'مقاومة قضيب التأريض وعدد القضبان', descEn: 'Ground rod resistance and rod count', noteAr: 'نتيجة التأريض تعتمد بشدة على مقاومة التربة والرطوبة وطريقة الربط.', noteEn: 'Earthing result depends heavily on soil resistivity, moisture and bonding method.' },
       { id: 'ups', category: 'services', icon: 'battery', ar: 'سعة UPS / البطاريات', en: 'UPS / Battery Sizing', descAr: 'سعة UPS والبطارية التقريبية Ah', descEn: 'UPS rating and approximate battery Ah', noteAr: 'سعة البطارية تقديرية وتشمل كفاءة UPS وعمق تفريغ 80%.', noteEn: 'Battery capacity is estimated with UPS efficiency and 80% depth of discharge.' },
       { id: 'cost', category: 'services', icon: 'coins', ar: 'تكلفة الاستهلاك', en: 'Energy Cost', descAr: 'الاستهلاك والتكلفة اليومية والشهرية', descEn: 'Consumption plus daily and period cost', noteAr: 'استخدم التعرفة الفعلية من مزود الخدمة عند إعداد تقرير نهائي.', noteEn: 'Use the actual utility tariff for final reports.' }
+      ,
+      { id: 'breaker', category: 'protection', icon: 'breaker', ar: 'اختيار القاطع الكهربائي', en: 'Breaker Sizing', descAr: 'تيار الحمل واختيار أقرب قاطع قياسي أعلى', descEn: 'Load current and nearest higher standard breaker', noteAr: 'أدخل عامل الطلب كنسبة مئوية، واختر نوع الحمل لتطبيق معامل الحمل المستمر عند الحاجة.', noteEn: 'Enter demand factor as a percentage, and choose load type to apply the continuous-load factor when needed.' },
+      { id: 'panelcap', category: 'design', icon: 'panel', ar: 'سعة لوحة التوزيع', en: 'Panel Capacity', descAr: 'سعة اللوحة والقاطع الرئيسي والبسبار', descEn: 'Panel capacity, main breaker and busbar rating', noteAr: 'أدخل السعة الاحتياطية كنسبة مئوية فوق حمل الطلب لاختيار اللوحة مبدئيا.', noteEn: 'Enter spare capacity as a percentage above demand load for preliminary panel selection.' },
+      { id: 'gensize', category: 'services', icon: 'generator', ar: 'حجم مولد الطوارئ', en: 'Generator Sizing', descAr: 'اختيار مولد من 1 kVA حتى المشاريع الكبيرة', descEn: 'Generator selection from 1 kVA to large projects', noteAr: 'يدعم الأحمال السكنية الصغيرة والمشاريع التجارية والصناعية مع تأثير بدء أكبر موتور.', noteEn: 'Supports small residential loads and commercial/industrial projects with largest motor starting impact.' }
     ];
 
     const refs = [
@@ -829,6 +880,49 @@
       return String(value ?? '').replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch]));
     }
     function standardAtLeast(list, value, fallback) { return list.find(x => x >= value) ?? fallback; }
+    function standardSelection(list, value, unit) {
+      const selected = list.find(x => x >= value);
+      return {
+        value: selected ?? null,
+        label: selected ? selected + ' ' + unit : L('أكبر من ', 'Above ') + list[list.length - 1] + ' ' + unit,
+        warning: !selected
+      };
+    }
+    function percentValue(id) { return n(id) / 100; }
+    function sbc401Note() {
+      return L(
+        'هذه النتائج تقديرية أولية مبنية على مبادئ التصميم الكهربائي ومتطلبات SBC 401، ويجب التحقق النهائي وفق كود البناء السعودي الكهربائي، مواصفات المشروع، بيانات المصنع، سعة القصر، الهبوط في الجهد، التنسيق والحماية، ومتطلبات الجهة المالكة.',
+        'These results are preliminary estimates based on electrical design principles and SBC 401 requirements. Final verification must follow the Saudi Electrical Code, project specifications, manufacturer data, short-circuit capacity, voltage drop, coordination, protection, and owner requirements.'
+      );
+    }
+    function validatePositiveCalc(calcId, checks) {
+      const message = checks.find(check => !check.ok)?.message;
+      if (!message) return true;
+      document.getElementById(calcId + '_result').innerHTML = '<div class="calc-error">' + message + '</div>';
+      const saveBox = document.getElementById(calcId + '_save');
+      if (saveBox) saveBox.classList.add('hidden');
+      return false;
+    }
+    function engineeringResult(calcId, title, items, steps, warning = false) {
+      const stepsHtml = '<div class="engineering-steps"><strong>' + L('خطوات الحساب', 'Calculation steps') + '</strong><ol>' + steps.map(step => '<li>' + step + '</li>').join('') + '</ol></div>';
+      const note = sbc401Note();
+      const actions = '<div class="result-actions"><button class="ghost-btn" type="button" onclick="copyEngineeringResult()">' + icon('copy') + '<span>' + L('نسخ النتيجة','Copy result') + '</span></button><button class="ghost-btn" type="button" onclick="printEngineeringResult()">' + icon('print') + '<span>' + L('طباعة / PDF','Print / PDF') + '</span></button></div>';
+      document.getElementById(calcId + '_result').innerHTML = metrics(items, warning) + stepsHtml + '<p class="sbc-note">' + note + '</p>' + actions;
+      state.lastResult = {
+        calcId,
+        title,
+        summary: plainMetrics(items),
+        note,
+        at: new Date().toLocaleString(state.lang === 'ar' ? 'ar-SA' : 'en-US')
+      };
+      const saveBox = document.getElementById(calcId + '_save');
+      if (saveBox) {
+        const select = document.getElementById(calcId + '_project');
+        if (select) select.innerHTML = projectOptions();
+        saveBox.classList.remove('hidden');
+      }
+      renderDashboard();
+    }
     function metrics(items, warning = false) {
       return '<div class="result' + (warning ? ' warning' : '') + '">' + items.map(i => '<div class="metric"><span>' + i.label + '</span><strong>' + i.value + '</strong></div>').join('') + '</div>';
     }
@@ -1004,6 +1098,36 @@
       },
       cost() {
         return '<div class="form-grid">' + field('co_p', L('القدرة (kW)', 'Power (kW)'), 2) + field('co_h', L('ساعات/يوم', 'Hours/day'), 8) + field('co_d', L('أيام التشغيل', 'Days'), 30) + field('co_r', L('سعر kWh', 'Price per kWh'), .18, 'number', 'step="0.01"') + field('co_cur', L('العملة', 'Currency'), 'SAR', 'text') + '</div>' + calcButton('calc_cost', L('احسب', 'Calculate'));
+      },
+      breaker() {
+        return '<div class="form-grid">' +
+          field('br_load', L('الحمل (kW)', 'Load (kW)'), 50, 'number', 'min="0" step="0.01" title="' + L('أدخل الحمل بالكيلوواط بقيمة موجبة', 'Enter load in kW as a positive value') + '"') +
+          field('br_volt', L('الجهد (V)', 'Voltage (V)'), 400, 'number', 'min="1" step="1" title="' + L('أدخل جهد النظام بالفولت', 'Enter system voltage in volts') + '"') +
+          selectField('br_phase', L('عدد الأوجه', 'Phase'), [{value:1,label:L('أحادي الطور','Single Phase')},{value:3,label:L('ثلاثي الطور','Three Phase')}]) +
+          field('br_pf', L('معامل القدرة', 'Power Factor'), .9, 'number', 'min="0.01" max="1" step="0.01" title="' + L('يجب أن يكون معامل القدرة أكبر من صفر ولا يتجاوز 1', 'Power factor must be above zero and not greater than 1') + '"') +
+          field('br_df', L('عامل الطلب (%)', 'Demand Factor (%)'), 100, 'number', 'min="0" max="100" step="0.1" title="' + L('أدخل عامل الطلب كنسبة مئوية', 'Enter demand factor as percentage') + '"') +
+          selectField('br_type', L('نوع الحمل', 'Load Type'), [{value:'continuous',label:L('حمل مستمر','Continuous Load')},{value:'non',label:L('حمل غير مستمر','Non-Continuous Load')}]) +
+          '</div>' + calcButton('calc_breaker', L('احسب', 'Calculate'));
+      },
+      panelcap() {
+        return '<div class="form-grid">' +
+          field('pn_load', L('إجمالي الحمل (kW)', 'Total Load (kW)'), 120, 'number', 'min="0" step="0.01" title="' + L('أدخل إجمالي الحمل بالكيلوواط', 'Enter total load in kW') + '"') +
+          field('pn_volt', L('الجهد (V)', 'Voltage (V)'), 400, 'number', 'min="1" step="1" title="' + L('أدخل جهد النظام بالفولت', 'Enter system voltage in volts') + '"') +
+          selectField('pn_phase', L('عدد الأوجه', 'Phase'), [{value:1,label:L('أحادي الطور','Single Phase')},{value:3,label:L('ثلاثي الطور','Three Phase')}]) +
+          field('pn_pf', L('معامل القدرة', 'Power Factor'), .9, 'number', 'min="0.01" max="1" step="0.01" title="' + L('يجب أن يكون معامل القدرة أكبر من صفر ولا يتجاوز 1', 'Power factor must be above zero and not greater than 1') + '"') +
+          field('pn_df', L('عامل الطلب (%)', 'Demand Factor (%)'), 80, 'number', 'min="0" max="100" step="0.1" title="' + L('أدخل عامل الطلب كنسبة مئوية', 'Enter demand factor as percentage') + '"') +
+          field('pn_spare', L('السعة الاحتياطية (%)', 'Spare Capacity (%)'), 20, 'number', 'min="0" step="0.1" title="' + L('أدخل نسبة السعة الاحتياطية فوق حمل الطلب', 'Enter spare capacity percentage above demand load') + '"') +
+          '</div>' + calcButton('calc_panelcap', L('احسب', 'Calculate'));
+      },
+      gensize() {
+        return '<div class="form-grid">' +
+          field('gn_load', L('الحمل المتصل (kW)', 'Connected Load (kW)'), 12, 'number', 'min="0" step="0.01" title="' + L('أدخل الحمل المتصل بالكيلوواط', 'Enter connected load in kW') + '"') +
+          field('gn_df', L('عامل الطلب (%)', 'Demand Factor (%)'), 80, 'number', 'min="0" max="100" step="0.1" title="' + L('أدخل عامل الطلب كنسبة مئوية', 'Enter demand factor as percentage') + '"') +
+          field('gn_pf', L('معامل القدرة', 'Power Factor'), .8, 'number', 'min="0.01" max="1" step="0.01" title="' + L('يجب أن يكون معامل القدرة أكبر من صفر ولا يتجاوز 1', 'Power factor must be above zero and not greater than 1') + '"') +
+          field('gn_motor', L('أكبر موتور بدء (kW)', 'Largest Starting Motor (kW)'), 2, 'number', 'min="0" step="0.01" title="' + L('أدخل قدرة أكبر موتور يبدأ مع المولد، ويمكن إدخال صفر إذا لا يوجد', 'Enter largest starting motor kW, or zero if none') + '"') +
+          selectField('gn_start', L('طريقة بدء الموتور', 'Motor Starting Method'), [{value:6,label:'DOL'}, {value:2,label:'Star Delta'}, {value:1.5,label:'Soft Starter'}, {value:1.2,label:'VFD'}]) +
+          field('gn_reserve', L('هامش الاحتياط (%)', 'Reserve Margin (%)'), 20, 'number', 'min="0" step="0.1" title="' + L('أدخل هامش الاحتياط كنسبة مئوية', 'Enter reserve margin as percentage') + '"') +
+          '</div>' + calcButton('calc_gensize', L('احسب', 'Calculate'));
       }
     };
 
@@ -1210,6 +1334,128 @@
           { label: L('يومي', 'Daily'), value: fmt(n('co_p') * n('co_h') * n('co_r'), 2) + ' ' + cur }
         ]);
       };
+
+      if (id === 'breaker') document.getElementById('calc_breaker').onclick = () => {
+        const load = n('br_load');
+        const voltage = n('br_volt');
+        const phase = n('br_phase');
+        const pf = n('br_pf');
+        const demandPercent = n('br_df');
+        const isContinuous = document.getElementById('br_type').value === 'continuous';
+        if (!validatePositiveCalc('calc_breaker', [
+          { ok: load >= 0, message: L('الحمل يجب ألا يكون قيمة سالبة.', 'Load cannot be negative.') },
+          { ok: voltage > 0, message: L('الجهد يجب أن يكون أكبر من صفر.', 'Voltage must be greater than zero.') },
+          { ok: pf > 0 && pf <= 1, message: L('معامل القدرة يجب أن يكون أكبر من صفر ولا يتجاوز 1.', 'Power factor must be greater than zero and not above 1.') },
+          { ok: demandPercent >= 0 && demandPercent <= 100, message: L('عامل الطلب يجب أن يكون بين 0% و100%.', 'Demand factor must be between 0% and 100%.') }
+        ])) return;
+        const demandFactor = demandPercent / 100;
+        const demandLoad = load * demandFactor;
+        const current = phase === 3 ? demandLoad * 1000 / (Math.sqrt(3) * voltage * pf) : demandLoad * 1000 / (voltage * pf);
+        const minimumBreaker = isContinuous ? current * 1.25 : current;
+        const breaker = standardSelection(engineeringBreakerSizes, minimumBreaker, 'A');
+        engineeringResult('calc_breaker', L('اختيار القاطع الكهربائي','Breaker Sizing'), [
+          { label: L('حمل الطلب', 'Demand Load'), value: fmt(demandLoad, 2) + ' kW' },
+          { label: L('تيار الحمل', 'Load Current'), value: fmt(current, 2) + ' A' },
+          { label: L('تيار القاطع الأدنى', 'Minimum Breaker Current'), value: fmt(minimumBreaker, 2) + ' A' },
+          { label: L('القاطع المقترح', 'Recommended Breaker'), value: breaker.label }
+        ], [
+          L('حمل الطلب = الحمل × عامل الطلب = ', 'Demand Load = Load × Demand Factor = ') + fmt(load, 2) + ' × ' + fmt(demandFactor, 2) + ' = ' + fmt(demandLoad, 2) + ' kW',
+          phase === 3
+            ? L('تيار ثلاثي الطور = حمل الطلب × 1000 / (√3 × الجهد × معامل القدرة) = ', 'Three-phase current = Demand Load × 1000 / (√3 × Voltage × PF) = ') + fmt(current, 2) + ' A'
+            : L('تيار أحادي الطور = حمل الطلب × 1000 / (الجهد × معامل القدرة) = ', 'Single-phase current = Demand Load × 1000 / (Voltage × PF) = ') + fmt(current, 2) + ' A',
+          isContinuous
+            ? L('الحمل مستمر: تيار القاطع الأدنى = تيار الحمل × 1.25 = ', 'Continuous load: minimum breaker current = load current × 1.25 = ') + fmt(minimumBreaker, 2) + ' A'
+            : L('الحمل غير مستمر: تيار القاطع الأدنى = تيار الحمل = ', 'Non-continuous load: minimum breaker current = load current = ') + fmt(minimumBreaker, 2) + ' A',
+          L('تم اختيار أقرب قاطع قياسي أعلى: ', 'Nearest higher standard breaker selected: ') + breaker.label
+        ], breaker.warning);
+      };
+
+      if (id === 'panelcap') document.getElementById('calc_panelcap').onclick = () => {
+        const load = n('pn_load');
+        const voltage = n('pn_volt');
+        const phase = n('pn_phase');
+        const pf = n('pn_pf');
+        const demandPercent = n('pn_df');
+        const sparePercent = n('pn_spare');
+        if (!validatePositiveCalc('calc_panelcap', [
+          { ok: load >= 0, message: L('إجمالي الحمل يجب ألا يكون قيمة سالبة.', 'Total load cannot be negative.') },
+          { ok: voltage > 0, message: L('الجهد يجب أن يكون أكبر من صفر.', 'Voltage must be greater than zero.') },
+          { ok: pf > 0 && pf <= 1, message: L('معامل القدرة يجب أن يكون أكبر من صفر ولا يتجاوز 1.', 'Power factor must be greater than zero and not above 1.') },
+          { ok: demandPercent >= 0 && demandPercent <= 100, message: L('عامل الطلب يجب أن يكون بين 0% و100%.', 'Demand factor must be between 0% and 100%.') },
+          { ok: sparePercent >= 0, message: L('السعة الاحتياطية يجب ألا تكون قيمة سالبة.', 'Spare capacity cannot be negative.') }
+        ])) return;
+        const demandFactor = demandPercent / 100;
+        const spareFactor = sparePercent / 100;
+        const demandLoad = load * demandFactor;
+        const panelCapacity = demandLoad * (1 + spareFactor);
+        const panelCurrent = phase === 3 ? panelCapacity * 1000 / (Math.sqrt(3) * voltage * pf) : panelCapacity * 1000 / (voltage * pf);
+        const breaker = standardSelection(engineeringBreakerSizes, panelCurrent, 'A');
+        const busbar = breaker.value ? standardSelection(panelRatings, breaker.value, 'A') : standardSelection(panelRatings, panelCurrent, 'A');
+        engineeringResult('calc_panelcap', L('سعة لوحة التوزيع','Panel Capacity'), [
+          { label: L('حمل الطلب', 'Demand Load'), value: fmt(demandLoad, 2) + ' kW' },
+          { label: L('سعة اللوحة', 'Panel Capacity'), value: fmt(panelCapacity, 2) + ' kW' },
+          { label: L('تيار اللوحة', 'Panel Current'), value: fmt(panelCurrent, 2) + ' A' },
+          { label: L('القاطع الرئيسي', 'Main Breaker'), value: breaker.label },
+          { label: L('تصنيف البسبار', 'Busbar Rating'), value: busbar.label }
+        ], [
+          L('حمل الطلب = إجمالي الحمل × عامل الطلب = ', 'Demand Load = Total Load × Demand Factor = ') + fmt(load, 2) + ' × ' + fmt(demandFactor, 2) + ' = ' + fmt(demandLoad, 2) + ' kW',
+          L('سعة اللوحة = حمل الطلب × (1 + السعة الاحتياطية) = ', 'Panel Capacity = Demand Load × (1 + Spare Capacity) = ') + fmt(demandLoad, 2) + ' × (1 + ' + fmt(spareFactor, 2) + ') = ' + fmt(panelCapacity, 2) + ' kW',
+          phase === 3
+            ? L('تيار اللوحة ثلاثي الطور = سعة اللوحة × 1000 / (√3 × الجهد × معامل القدرة) = ', 'Three-phase panel current = Panel Capacity × 1000 / (√3 × Voltage × PF) = ') + fmt(panelCurrent, 2) + ' A'
+            : L('تيار اللوحة أحادي الطور = سعة اللوحة × 1000 / (الجهد × معامل القدرة) = ', 'Single-phase panel current = Panel Capacity × 1000 / (Voltage × PF) = ') + fmt(panelCurrent, 2) + ' A',
+          L('تم اختيار أقرب قاطع رئيسي قياسي أعلى: ', 'Nearest higher standard main breaker selected: ') + breaker.label,
+          L('تصنيف البسبار مساو أو أعلى من القاطع الرئيسي: ', 'Busbar rating is equal to or higher than the main breaker: ') + busbar.label
+        ], breaker.warning || busbar.warning);
+      };
+
+      if (id === 'gensize') document.getElementById('calc_gensize').onclick = () => {
+        const connectedLoad = n('gn_load');
+        const demandPercent = n('gn_df');
+        const pf = n('gn_pf');
+        const motorKw = n('gn_motor');
+        const startFactor = n('gn_start');
+        const reservePercent = n('gn_reserve');
+        if (!validatePositiveCalc('calc_gensize', [
+          { ok: connectedLoad >= 0, message: L('الحمل المتصل يجب ألا يكون قيمة سالبة.', 'Connected load cannot be negative.') },
+          { ok: demandPercent >= 0 && demandPercent <= 100, message: L('عامل الطلب يجب أن يكون بين 0% و100%.', 'Demand factor must be between 0% and 100%.') },
+          { ok: pf > 0 && pf <= 1, message: L('معامل القدرة يجب أن يكون أكبر من صفر ولا يتجاوز 1.', 'Power factor must be greater than zero and not above 1.') },
+          { ok: motorKw >= 0, message: L('قدرة أكبر موتور يجب ألا تكون قيمة سالبة.', 'Largest motor power cannot be negative.') },
+          { ok: reservePercent >= 0, message: L('هامش الاحتياط يجب ألا يكون قيمة سالبة.', 'Reserve margin cannot be negative.') }
+        ])) return;
+        const demandFactor = demandPercent / 100;
+        const reserveFactor = reservePercent / 100;
+        const runningKw = connectedLoad * demandFactor;
+        const runningKva = runningKw / pf;
+        const motorKva = motorKw / pf;
+        const startingMotorKva = motorKva * startFactor;
+        const requiredKva = runningKva + startingMotorKva;
+        const finalKva = requiredKva * (1 + reserveFactor);
+        const generator = standardSelection(generatorSizes, finalKva, 'kVA');
+        const genValue = generator.value ?? finalKva;
+        const category = genValue <= 20
+          ? L('سكني / حمل صغير', 'Residential / Small Load')
+          : genValue <= 100
+            ? L('تجاري صغير', 'Small Commercial')
+            : genValue <= 500
+              ? L('تجاري / منشأة', 'Commercial / Facility')
+              : L('صناعي / مشروع كبير', 'Industrial / Large Project');
+        engineeringResult('calc_gensize', L('حجم مولد الطوارئ','Generator Sizing'), [
+          { label: L('حمل التشغيل', 'Running Load'), value: fmt(runningKw, 2) + ' kW' },
+          { label: L('حمل التشغيل', 'Running Load'), value: fmt(runningKva, 2) + ' kVA' },
+          { label: L('بدء الموتور', 'Starting Motor'), value: fmt(startingMotorKva, 2) + ' kVA' },
+          { label: L('المولد المطلوب', 'Required Generator'), value: fmt(requiredKva, 2) + ' kVA' },
+          { label: L('المولد المقترح', 'Recommended Generator'), value: generator.label },
+          { label: L('التصنيف', 'Category'), value: category }
+        ], [
+          L('حمل التشغيل kW = الحمل المتصل × عامل الطلب = ', 'Running Load kW = Connected Load × Demand Factor = ') + fmt(connectedLoad, 2) + ' × ' + fmt(demandFactor, 2) + ' = ' + fmt(runningKw, 2) + ' kW',
+          L('حمل التشغيل kVA = حمل التشغيل kW / معامل القدرة = ', 'Running Load kVA = Running Load kW / PF = ') + fmt(runningKva, 2) + ' kVA',
+          L('kVA الموتور = قدرة أكبر موتور / معامل القدرة = ', 'Motor kVA = Largest Starting Motor kW / PF = ') + fmt(motorKva, 2) + ' kVA',
+          L('kVA بدء الموتور = kVA الموتور × معامل البدء = ', 'Starting Motor kVA = Motor kVA × Starting Factor = ') + fmt(startingMotorKva, 2) + ' kVA',
+          L('kVA المولد المطلوب = حمل التشغيل kVA + kVA بدء الموتور = ', 'Required Generator kVA = Running Load kVA + Starting Motor kVA = ') + fmt(requiredKva, 2) + ' kVA',
+          L('kVA النهائي = المطلوب × (1 + هامش الاحتياط) = ', 'Final Generator kVA = Required × (1 + Reserve Margin) = ') + fmt(finalKva, 2) + ' kVA',
+          L('تم اختيار أقرب حجم قياسي أعلى وتصنيفه: ', 'Nearest higher standard size selected and classified: ') + generator.label + ' - ' + category
+        ], generator.warning);
+      };
     }
 
     function loadProjects() {
@@ -1407,6 +1653,22 @@
       } catch {
         alert(text);
       }
+    };
+    window.copyEngineeringResult = async function() {
+      if (!state.lastResult) {
+        alert(L('احسب أولا ثم انسخ النتيجة.', 'Calculate first, then copy the result.'));
+        return;
+      }
+      const text = [state.lastResult.title, state.lastResult.summary, state.lastResult.note, state.lastResult.at].filter(Boolean).join('\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        alert(L('تم نسخ النتيجة.', 'Result copied.'));
+      } catch {
+        alert(text);
+      }
+    };
+    window.printEngineeringResult = function() {
+      window.print();
     };
     window.printLightingPlan = function() {
       document.body.classList.add('print-plan');
