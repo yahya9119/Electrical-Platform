@@ -208,6 +208,12 @@
       color: var(--teal);
     }
     .tool-icon svg, .small-icon svg, .mini svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .tool-icon.icon-factory svg,
+    .tool-icon.icon-panel svg,
+    .tool-icon.icon-breaker svg {
+      width: 40px;
+      height: 40px;
+    }
     .tool-card h3, .ref-card h3, .project-card h3 { margin: 0 0 6px; font-size: 1.12rem; font-weight: 950; color: var(--teal-2); }
     .tool-card p, .muted { margin: 0; color: var(--muted); line-height: 1.65; }
 
@@ -751,7 +757,7 @@
       refresh: '<svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>',
       warn: '<svg viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>',
       gear: '<svg viewBox="0 0 24 24"><path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/></svg>',
-      factory: '<svg viewBox="0 0 24 24"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 7h12"/><path d="M6 17h12"/><path d="M10 9a3 3 0 0 0 0 6"/><path d="M14 9a3 3 0 0 1 0 6"/><path d="M3 20h18"/></svg>',
+      factory: '<svg viewBox="0 0 48 48"><rect x="8" y="21" width="32" height="20" rx="3" fill="currentColor" opacity=".18" stroke="currentColor" stroke-width="3"/><rect x="3" y="25" width="7" height="12" rx="2" fill="currentColor" opacity=".14" stroke="currentColor" stroke-width="3"/><rect x="38" y="25" width="7" height="12" rx="2" fill="currentColor" opacity=".14" stroke="currentColor" stroke-width="3"/><path d="M11 21V17h26v4"/><path d="M15 17V8M24 17V8M33 17V8"/><path d="M12 14h6l-2-5h-2z" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="3"/><path d="M21 14h6l-2-5h-2z" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="3"/><path d="M30 14h6l-2-5h-2z" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="3"/><rect x="13" y="25" width="22" height="11" rx="3" fill="currentColor" opacity=".10" stroke="currentColor" stroke-width="3"/><path d="M25 27 21 33h3l-1 5 5-7h-3z" stroke-width="3"/><path d="M13 45h7M28 45h7"/></svg>',
       lamp: '<svg viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>',
       pipe: '<svg viewBox="0 0 24 24"><path d="M4 7h10a4 4 0 0 1 0 8H8"/><path d="M4 11h10"/><path d="M4 7v4"/><path d="M4 15v4"/><path d="M8 15v4"/><path d="M16 9h4"/><path d="M16 13h4"/></svg>',
       earth: '<svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="M8 13h8"/><path d="M6 17h12"/><path d="M4 21h16"/></svg>',
@@ -762,8 +768,8 @@
       phone: '<svg viewBox="0 0 24 24"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg>',
       print: '<svg viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>',
       copy: '<svg viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>',
-      breaker: '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6"/><path d="M12 10v4"/><path d="M9 15l6-4"/><path d="M9 18h6"/></svg>',
-      panel: '<svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8"/><path d="M8 11h8"/><path d="M8 15h3"/><path d="M13 15h3"/><path d="M8 18h3"/><path d="M13 18h3"/></svg>',
+      breaker: '<svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="32" rx="5" fill="currentColor" opacity=".10" stroke="currentColor" stroke-width="3"/><path d="M10 24h10" stroke-width="4"/><path d="M30 24h8" stroke-width="4"/><circle cx="20" cy="24" r="3.2" fill="currentColor" stroke="currentColor" stroke-width="2"/><circle cx="30" cy="24" r="3.2" fill="currentColor" opacity=".18" stroke="currentColor" stroke-width="2.6"/><path d="M20 24 31 15" stroke-width="4.5"/><path d="M32 13l4-3" stroke-width="3"/><path d="M14 34h20" stroke-width="3"/><path d="M18 34v4M30 34v4" stroke-width="3"/></svg>',
+      panel: '<svg viewBox="0 0 48 48"><rect x="7" y="3" width="34" height="42" rx="2" fill="currentColor" opacity=".18" stroke="currentColor" stroke-width="3.2"/><rect x="12" y="8" width="24" height="32" rx="1" fill="none" stroke="currentColor" stroke-width="3"/><rect x="9" y="12" width="3" height="8" rx="1" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="2"/><rect x="9" y="27" width="3" height="8" rx="1" fill="currentColor" opacity=".28" stroke="currentColor" stroke-width="2"/><path d="M24 17 16.5 31a3 3 0 0 0 2.7 4.4h9.6a3 3 0 0 0 2.7-4.4z" fill="currentColor" opacity=".10" stroke="currentColor" stroke-width="3"/><path d="M25 22 21 28h3l-1.5 6 5.5-8h-3z" stroke-width="3.4"/></svg>',
       generator: '<svg viewBox="0 0 24 24"><rect x="3" y="8" width="14" height="9" rx="2"/><path d="M17 11h2a2 2 0 0 1 2 2v4"/><circle cx="8" cy="12.5" r="2"/><path d="M5 20h12"/><path d="M7 17v3"/><path d="M15 17v3"/><path d="M11 12.5h3"/></svg>'
     };
 
@@ -1234,7 +1240,7 @@
     function renderCalculators() {
       renderCalculatorCategories();
       const list = state.activeCategory === 'all' ? calculators : calculators.filter(c => c.category === state.activeCategory);
-      document.getElementById('calculatorGrid').innerHTML = list.map(c => '<button class="tool-card" type="button" data-calc="' + c.id + '"><span class="tool-icon">' + icon(c.icon) + '</span><span><h3>' + L(c.ar, c.en) + '</h3><p>' + L(c.descAr, c.descEn) + '</p></span></button>').join('');
+      document.getElementById('calculatorGrid').innerHTML = list.map(c => '<button class="tool-card" type="button" data-calc="' + c.id + '"><span class="tool-icon icon-' + c.icon + '">' + icon(c.icon) + '</span><span><h3>' + L(c.ar, c.en) + '</h3><p>' + L(c.descAr, c.descEn) + '</p></span></button>').join('');
       document.querySelectorAll('[data-calc]').forEach(btn => btn.addEventListener('click', () => openCalc(btn.dataset.calc)));
     }
     function renderCalculatorCategories() {
